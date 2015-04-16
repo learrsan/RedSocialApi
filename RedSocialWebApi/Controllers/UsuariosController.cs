@@ -17,7 +17,7 @@ namespace RedSocialWebApi.Controllers
         private RedSocialEntities db = new RedSocialEntities();
 
         // GET: api/Usuarios
-        public IQueryable<Usuario> GetUsuario()
+        public IEnumerable<Usuario> GetUsuario()
         {
             return db.Usuario;
         }
@@ -32,6 +32,18 @@ namespace RedSocialWebApi.Controllers
                 return NotFound();
             }
 
+            return Ok(usuario);
+        }
+
+        [ResponseType(typeof(void))]
+        public IHttpActionResult GetUsuario(String login, String password)
+        {
+            var usuario = db.Usuario.FirstOrDefault(o => o.login == login && o.password == password);
+
+            if (usuario == null)
+            {
+                return StatusCode(HttpStatusCode.Forbidden);
+            }
             return Ok(usuario);
         }
 
