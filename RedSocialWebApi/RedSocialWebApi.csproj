@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AmigosController.cs" />
+    <Compile Include="Controllers\MensajesPrivadosController.cs" />
     <Compile Include="Controllers\MensajesPublicosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
