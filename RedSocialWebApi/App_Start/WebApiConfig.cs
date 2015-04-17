@@ -16,6 +16,7 @@ namespace RedSocialWebApi
 
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.EnableCors();
             
             // Web API routes
             config.MapHttpAttributeRoutes();
